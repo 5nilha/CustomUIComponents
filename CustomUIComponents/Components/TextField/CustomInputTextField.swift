@@ -32,7 +32,7 @@ class CustomInputTextField: UITextField, UITextFieldDelegate {
     func setType(type: CustomInputType) {
         self.type = type
         self.decorator = CustomInputDecorator(type: self.type)
-        self.placeholder = try? self.decorator.decorate(character: "0")
+        self.placeholder = try? self.decorator.defaultPlaceholder()
     }
     
     func alignText(to position: NSTextAlignment) {

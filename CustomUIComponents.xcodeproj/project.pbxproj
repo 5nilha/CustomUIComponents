@@ -16,6 +16,15 @@
 		3E93560F244E894800F70D93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E93560D244E894800F70D93 /* LaunchScreen.storyboard */; };
 		3E93561A244E894900F70D93 /* CustomUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935619244E894900F70D93 /* CustomUIComponentsTests.swift */; };
 		3E935625244E894900F70D93 /* CustomUIComponentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935624244E894900F70D93 /* CustomUIComponentsUITests.swift */; };
+		3E935634244E898D00F70D93 /* CustomInputDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935633244E898D00F70D93 /* CustomInputDecorator.swift */; };
+		3E935637244E89B300F70D93 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935636244E89B300F70D93 /* CustomErrors.swift */; };
+		3E935639244E89D100F70D93 /* CustomInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935638244E89D100F70D93 /* CustomInputType.swift */; };
+		3E93563C244E8A1000F70D93 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93563B244E8A1000F70D93 /* CustomInputTextField.swift */; };
+		3E935640244E8A4700F70D93 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93563F244E8A4700F70D93 /* CustomLabel.swift */; };
+		3E935643244E8A8400F70D93 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935642244E8A8400F70D93 /* Currency.swift */; };
+		3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */; };
+		3E93564B244E8B2100F70D93 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93564A244E8B2100F70D93 /* Currencies.swift */; };
+		3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,15 @@
 		3E935620244E894900F70D93 /* CustomUIComponentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomUIComponentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E935624244E894900F70D93 /* CustomUIComponentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIComponentsUITests.swift; sourceTree = "<group>"; };
 		3E935626244E894900F70D93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E935633244E898D00F70D93 /* CustomInputDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputDecorator.swift; sourceTree = "<group>"; };
+		3E935636244E89B300F70D93 /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
+		3E935638244E89D100F70D93 /* CustomInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputType.swift; sourceTree = "<group>"; };
+		3E93563B244E8A1000F70D93 /* CustomInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
+		3E93563F244E8A4700F70D93 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		3E935642244E8A8400F70D93 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesProtocol.swift; sourceTree = "<group>"; };
+		3E93564A244E8B2100F70D93 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +119,11 @@
 		3E9355FE244E894600F70D93 /* CustomUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				3E935644244E8A9B00F70D93 /* Protocols */,
+				3E935641244E8A6300F70D93 /* Models */,
+				3E93563A244E89FA00F70D93 /* Components */,
+				3E935635244E899800F70D93 /* Types */,
+				3E935632244E896000F70D93 /* Decorators */,
 				3E9355FF244E894600F70D93 /* AppDelegate.swift */,
 				3E935601244E894600F70D93 /* SceneDelegate.swift */,
 				3E935603244E894600F70D93 /* ViewController.swift */,
@@ -129,6 +152,74 @@
 				3E935626244E894900F70D93 /* Info.plist */,
 			);
 			path = CustomUIComponentsUITests;
+			sourceTree = "<group>";
+		};
+		3E935632244E896000F70D93 /* Decorators */ = {
+			isa = PBXGroup;
+			children = (
+				3E935633244E898D00F70D93 /* CustomInputDecorator.swift */,
+				3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */,
+			);
+			path = Decorators;
+			sourceTree = "<group>";
+		};
+		3E935635244E899800F70D93 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				3E935636244E89B300F70D93 /* CustomErrors.swift */,
+				3E935638244E89D100F70D93 /* CustomInputType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		3E93563A244E89FA00F70D93 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3E93563E244E8A3400F70D93 /* Label */,
+				3E93563D244E8A2B00F70D93 /* TextField */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3E93563D244E8A2B00F70D93 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				3E93563B244E8A1000F70D93 /* CustomInputTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		3E93563E244E8A3400F70D93 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				3E93563F244E8A4700F70D93 /* CustomLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		3E935641244E8A6300F70D93 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E935649244E8B0D00F70D93 /* Currency */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3E935644244E8A9B00F70D93 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3E935649244E8B0D00F70D93 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				3E935642244E8A8400F70D93 /* Currency.swift */,
+				3E93564A244E8B2100F70D93 /* Currencies.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +354,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E935604244E894600F70D93 /* ViewController.swift in Sources */,
+				3E935640244E8A4700F70D93 /* CustomLabel.swift in Sources */,
+				3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */,
+				3E93563C244E8A1000F70D93 /* CustomInputTextField.swift in Sources */,
+				3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */,
+				3E935637244E89B300F70D93 /* CustomErrors.swift in Sources */,
+				3E935634244E898D00F70D93 /* CustomInputDecorator.swift in Sources */,
+				3E93564B244E8B2100F70D93 /* Currencies.swift in Sources */,
 				3E935600244E894600F70D93 /* AppDelegate.swift in Sources */,
+				3E935643244E8A8400F70D93 /* Currency.swift in Sources */,
 				3E93560A244E894600F70D93 /* CustomUIComponents.xcdatamodeld in Sources */,
+				3E935639244E89D100F70D93 /* CustomInputType.swift in Sources */,
 				3E935602244E894600F70D93 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

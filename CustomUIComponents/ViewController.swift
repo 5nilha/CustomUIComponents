@@ -10,11 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: CustomLabel!
+    @IBOutlet weak var textField: CustomInputTextField!
+       
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       super.viewDidLoad()
+       self.textField.setType(type: .currency(.EUR(.fr)))
+       self.label.text = "89.87663"
     }
-
-
 }
 
