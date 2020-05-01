@@ -5,18 +5,26 @@
 import Foundation
 
 enum CustomInputType {
-    case currency(Currencies)
-    case percentage
+    case currency(LocalCurrencies)
+    case percentage(LocalPercentages)
     case email
     case password
+    case creditCard
+    case giftCard
+    case zipcode
     case custom
     
-    var maxValue: Int {
+    var maxCharacters: Int {
         switch self{
         case .currency:
             return 20
-        case .percentage:
-            return 3
+        case .percentage(let localPercentage):
+            switch localPercentage {
+            case .regular:
+                return 4
+            case .decimal:
+                return 6
+            }
         case .email:
             return 256
         case .password:

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E44BB85245B6DEA00C65DAB /* Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44BB84245B6DEA00C65DAB /* Percentage.swift */; };
+		3E44BB87245B744300C65DAB /* LocalCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44BB86245B744300C65DAB /* LocalCurrencies.swift */; };
+		3E44BB89245B747F00C65DAB /* LocalPercentages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44BB88245B747F00C65DAB /* LocalPercentages.swift */; };
+		3E44BB8F245C02CA00C65DAB /* PercentageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44BB8E245C02CA00C65DAB /* PercentageTest.swift */; };
+		3E44BB93245C2E2100C65DAB /* NumeralDecoratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44BB92245C2E2100C65DAB /* NumeralDecoratorProtocol.swift */; };
 		3E935600244E894600F70D93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9355FF244E894600F70D93 /* AppDelegate.swift */; };
 		3E935602244E894600F70D93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935601244E894600F70D93 /* SceneDelegate.swift */; };
 		3E935604244E894600F70D93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935603244E894600F70D93 /* ViewController.swift */; };
@@ -23,7 +28,6 @@
 		3E935640244E8A4700F70D93 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93563F244E8A4700F70D93 /* CustomLabel.swift */; };
 		3E935643244E8A8400F70D93 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935642244E8A8400F70D93 /* Currency.swift */; };
 		3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */; };
-		3E93564B244E8B2100F70D93 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93564A244E8B2100F70D93 /* Currencies.swift */; };
 		3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E44BB84245B6DEA00C65DAB /* Percentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Percentage.swift; sourceTree = "<group>"; };
+		3E44BB86245B744300C65DAB /* LocalCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCurrencies.swift; sourceTree = "<group>"; };
+		3E44BB88245B747F00C65DAB /* LocalPercentages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPercentages.swift; sourceTree = "<group>"; };
+		3E44BB8E245C02CA00C65DAB /* PercentageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageTest.swift; sourceTree = "<group>"; };
+		3E44BB92245C2E2100C65DAB /* NumeralDecoratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumeralDecoratorProtocol.swift; sourceTree = "<group>"; };
 		3E9355FC244E894600F70D93 /* CustomUIComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomUIComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9355FF244E894600F70D93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E935601244E894600F70D93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +76,6 @@
 		3E93563F244E8A4700F70D93 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		3E935642244E8A8400F70D93 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesProtocol.swift; sourceTree = "<group>"; };
-		3E93564A244E8B2100F70D93 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +104,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E44BB83245B6D8000C65DAB /* Percentage */ = {
+			isa = PBXGroup;
+			children = (
+				3E44BB84245B6DEA00C65DAB /* Percentage.swift */,
+				3E44BB88245B747F00C65DAB /* LocalPercentages.swift */,
+			);
+			path = Percentage;
+			sourceTree = "<group>";
+		};
+		3E44BB90245C2B3A00C65DAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E44BB91245C2B4B00C65DAB /* Percentage */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3E44BB91245C2B4B00C65DAB /* Percentage */ = {
+			isa = PBXGroup;
+			children = (
+				3E44BB8E245C02CA00C65DAB /* PercentageTest.swift */,
+			);
+			path = Percentage;
+			sourceTree = "<group>";
+		};
 		3E9355F3244E894600F70D93 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +172,7 @@
 		3E935618244E894900F70D93 /* CustomUIComponentsTests */ = {
 			isa = PBXGroup;
 			children = (
+				3E44BB90245C2B3A00C65DAB /* Models */,
 				3E935619244E894900F70D93 /* CustomUIComponentsTests.swift */,
 				3E93561B244E894900F70D93 /* Info.plist */,
 			);
@@ -200,6 +234,7 @@
 		3E935641244E8A6300F70D93 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E44BB83245B6D8000C65DAB /* Percentage */,
 				3E935649244E8B0D00F70D93 /* Currency */,
 			);
 			path = Models;
@@ -209,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */,
+				3E44BB92245C2E2100C65DAB /* NumeralDecoratorProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -217,7 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				3E935642244E8A8400F70D93 /* Currency.swift */,
-				3E93564A244E8B2100F70D93 /* Currencies.swift */,
+				3E44BB86245B744300C65DAB /* LocalCurrencies.swift */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -354,13 +390,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E935604244E894600F70D93 /* ViewController.swift in Sources */,
+				3E44BB89245B747F00C65DAB /* LocalPercentages.swift in Sources */,
+				3E44BB93245C2E2100C65DAB /* NumeralDecoratorProtocol.swift in Sources */,
 				3E935640244E8A4700F70D93 /* CustomLabel.swift in Sources */,
 				3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */,
+				3E44BB87245B744300C65DAB /* LocalCurrencies.swift in Sources */,
+				3E44BB85245B6DEA00C65DAB /* Percentage.swift in Sources */,
 				3E93563C244E8A1000F70D93 /* CustomInputTextField.swift in Sources */,
 				3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */,
 				3E935637244E89B300F70D93 /* CustomErrors.swift in Sources */,
 				3E935634244E898D00F70D93 /* CustomInputDecorator.swift in Sources */,
-				3E93564B244E8B2100F70D93 /* Currencies.swift in Sources */,
 				3E935600244E894600F70D93 /* AppDelegate.swift in Sources */,
 				3E935643244E8A8400F70D93 /* Currency.swift in Sources */,
 				3E93560A244E894600F70D93 /* CustomUIComponents.xcdatamodeld in Sources */,
@@ -374,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E93561A244E894900F70D93 /* CustomUIComponentsTests.swift in Sources */,
+				3E44BB8F245C02CA00C65DAB /* PercentageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

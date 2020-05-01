@@ -6,67 +6,41 @@ import Foundation
 
 class CustomInputDecorator {
     private var type: CustomInputType!
+    private var decorator: NumeralDecoratorProtocol!
     
     init(type: CustomInputType) {
         self.type = type
+        self.setDecorator()
+    }
+    
+    private func setDecorator() {
+        switch self.type {
+        case .currency(let currencyType):
+            decorator = Currency(type: currencyType)
+        case .percentage(let percentageType):
+            decorator = Percentage(type: percentageType)
+        case .email:
+            break
+        case .password:
+            break
+        default:
+            break
+        }
     }
     
     func decorate(character: String?) throws -> String {
-        switch self.type {
-        case .currency(let currencyType):
-            var currency = Currency(type: currencyType)
-            return try currency.decorate(digitChar: character)
-        case .percentage:
-            self.setPercentage()
-            return ""
-        case .email:
-            self.setEmail()
-            return ""
-        case .password:
-            self.setPassword()
-            return ""
-        default:
-            return ""
-        }
+        return try self.decorator.decorate(digitChar: character)
     }
     
     var maxValue: Int {
-        return type.maxValue
+        return type.maxCharacters
     }
     
     func defaultPlaceholder() throws -> String {
-        switch self.type {
-        case .currency(let currencyType):
-            var currency = Currency(type: currencyType)
-            return try currency.decorate(digitChar: "0")
-        case .percentage:
-            self.setPercentage()
-            return ""
-        case .email:
-            self.setEmail()
-            return ""
-        case .password:
-            self.setPassword()
-            return ""
-        default:
-            return ""
-        }
+        return self.decorator.defaultPlaceholder()
     }
     
     var titlePlaceholder: String {
         return type.titlePlaceholder
     }
-    
-    private func setPercentage() {
-       
-    }
-    
-    private func setEmail() {
-        
-    }
-    
-    private func setPassword() {
-        
-    }
-    
 }

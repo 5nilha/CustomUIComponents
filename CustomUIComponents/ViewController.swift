@@ -15,7 +15,8 @@ class ViewController: UIViewController {
        
     override func viewDidLoad() {
        super.viewDidLoad()
-       self.textField.setType(type: .currency(.EUR(.fr)))
+        self.textField.setType(type: .currency(.Localized))
+//        self.textField.setType(type: .percentage(.regular))
        self.label.text = "89.87663"
     }
 }
