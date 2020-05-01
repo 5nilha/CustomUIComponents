@@ -5,8 +5,8 @@ import Foundation
 
 enum CustomNumberFormatter<T> {
     case currency(value: T)
-    case percentage(value: Double)
-    case decimalPercentage(value: Double)
+    case percentage(value: T)
+    case decimalPercentage(value: T)
     case decimal(value: Double)
     case scientific(value: Double)
     
@@ -38,6 +38,8 @@ enum CustomNumberFormatter<T> {
                 return self.formatDouble(value: valueAmount)
             } else if value is Int64, let valueAmount = value as? Int64  {
                 return formatInt(value: valueAmount)
+            } else if value is Int, let valueAmount = value as? Int  {
+                return formatInt(value: Int64(valueAmount))
             } else if value is String, let stringAmount = value as? String {
                 guard let string = stringByRemovingCharacters(stringAmount) else { throw CustomEntryError.invalidInput }
                 if let valueAmount = Int64(string) {
@@ -58,7 +60,8 @@ enum CustomNumberFormatter<T> {
         }
         
         private func formatInt(value: Int64) -> Double {
-            return Double(value / 100) + Double(value % 100) / 100
+            let digits = pow(10, Double(self.numberOfDigits))
+            return Double(value / 100) + Double(value % 100) / digits
         }
         
         private func stringByRemovingCharacters(_ string: String) -> String? {
