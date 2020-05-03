@@ -13,7 +13,6 @@ enum LocalPercentages {
     case decimal
 
     func format(value: Double) -> String {
-        print("Value \(value)")
         let locale: Locale = Locale.current
         let formatter = NumberFormatter()
         formatter.locale = locale
@@ -30,13 +29,6 @@ enum LocalPercentages {
             formatter.maximumIntegerDigits = 3
             formatter.minimumIntegerDigits = 1
             return formatter.string(from: NSNumber(value: value / 100))!
-            
-            
-//            formatter.numberStyle = .decimal
-//            let decimalPercent = "\(formatter.string(from: NSNumber(value: value))!) \(formatter.percentSymbol!)"
-//
-//            return decimalPercent
-            
         }
     }
 }

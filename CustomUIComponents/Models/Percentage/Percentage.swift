@@ -8,10 +8,14 @@ struct Percentage: NumeralDecoratorProtocol {
     private var amount: Int64 = 0
     private var type: LocalPercentages = .regular
     private var stringInput: String!
-    public private (set) var value: Double?
+    var doubleValue: Double = 0.4
     
     init(type: LocalPercentages) {
         self.type = type
+    }
+    
+    var value: Any {
+        return self.doubleValue
     }
     
     mutating func defaultPlaceholder() -> String {
@@ -36,7 +40,7 @@ struct Percentage: NumeralDecoratorProtocol {
             guard let value = try getNumeralValue(amount: self.amount) else {
                 throw CustomEntryError.invalidInput
             }
-            self.value = value
+            self.doubleValue = value
             return self.type.format(value: value)
           } else {
               var valueAmount: Double = 0
@@ -45,7 +49,7 @@ struct Percentage: NumeralDecoratorProtocol {
               guard let value = try getNumeralValue(amount: valueAmount) else {
                   throw CustomEntryError.invalidInput
               }
-              self.value = value
+              self.doubleValue = value
               return self.type.format(value: value)
           }
       }

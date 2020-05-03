@@ -7,10 +7,14 @@ struct Currency: NumeralDecoratorProtocol {
     private var amount: Int64 = 0
     private var type: LocalCurrencies!
     private var stringInput: String!
-    public private (set) var value: Double?
+    public private (set) var doubleValue: Double = 0
     
     init(type: LocalCurrencies) {
         self.type = type
+    }
+    
+    var value: Any {
+        return doubleValue
     }
     
     mutating func defaultPlaceholder() -> String {
@@ -37,7 +41,7 @@ struct Currency: NumeralDecoratorProtocol {
             guard let value = try getNumeralValue(amount: valueAmount) else {
                 throw CustomEntryError.invalidInput
             }
-            self.value = value
+            self.doubleValue = value
             return self.type.format(value: value)
         } else {
             var valueAmount: Double = 0
@@ -46,7 +50,7 @@ struct Currency: NumeralDecoratorProtocol {
             guard let value = try getNumeralValue(amount: valueAmount) else {
                 throw CustomEntryError.invalidInput
             }
-            self.value = value
+            self.doubleValue = value
             return self.type.format(value: value)
         }
     }

@@ -8,16 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var label: CustomLabel!
     @IBOutlet weak var textField: CustomInputTextField!
-       
+    @IBOutlet weak var entryDefaultLabel: UILabel!
+    
     override func viewDidLoad() {
        super.viewDidLoad()
-        self.textField.setType(type: .currency(.Localized))
-//        self.textField.setType(type: .percentage(.regular))
-       self.label.text = "89.87663"
+//        self.textField.setType(type: .currency(.Localized))
+        self.textField.setType(type: .percentage(.regular))
+        self.entryDefaultLabel.text = self.textField.defaultText
+        self.label.setType(type: .percentage(.decimal))
+        self.label.text = "89.87663"
     }
 }
 

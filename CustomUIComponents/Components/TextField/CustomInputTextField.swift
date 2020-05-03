@@ -20,6 +20,9 @@ class CustomInputTextField: UITextField, UITextFieldDelegate {
         super.init(coder: coder)
         self.setType(type: .currency(.Localized))
         self.commomInit()
+        if let text = self.text, text.count > 0 {
+            self.text = text
+        }
     }
     
     private func commomInit() {
@@ -34,6 +37,32 @@ class CustomInputTextField: UITextField, UITextFieldDelegate {
         self.decorator = CustomInputDecorator(type: self.type)
         self.placeholder = try? self.decorator.defaultPlaceholder()
     }
+    
+    var defaultText: String {
+        return self.decorator.defaultText
+    }
+    
+    override public var text: String? {
+       didSet {
+            guard let text = text else { return }
+            let decoratedInput = try? self.decorator.decorate(character: text)
+            if text != decoratedInput {
+                 self.text = decoratedInput
+            }
+            layoutIfNeeded()
+        }
+    }
+
+//    func settingChangedText(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let delegate = self.delegate, let result = delegate.textField?(textField, shouldChangeCharactersIn: range, replacementString: string)
+//         else { return true }
+//
+//        let decoratedInput = try? self.decorator.decorate(character: string)
+//        if text != decoratedInput {
+//            self.text = decoratedInput
+//        }
+//        return result
+//    }
     
     func alignText(to position: NSTextAlignment) {
         self.textAlignment = position
@@ -63,10 +92,10 @@ class CustomInputTextField: UITextField, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         let maxValue = self.decorator.maxValue
+        print(range.location)
         if range.location <= maxValue {
-             self.text = try? self.decorator.decorate(character: string)
+            self.text = string
         }
         return false
     }

@@ -29,7 +29,8 @@ class CustomInputDecorator {
     }
     
     func decorate(character: String?) throws -> String {
-        return try self.decorator.decorate(digitChar: character)
+        let decoratedString = try self.decorator.decorate(digitChar: character)
+        return decoratedString
     }
     
     var maxValue: Int {
@@ -42,5 +43,15 @@ class CustomInputDecorator {
     
     var titlePlaceholder: String {
         return type.titlePlaceholder
+    }
+    var defaultText: String! {
+        if self.decorator is Currency {
+            let decorator = self.decorator as! Currency
+            return "\(decorator.doubleValue)"
+        }
+        else {
+            let decorator = self.decorator as! Percentage
+            return "\(decorator.doubleValue)"
+        }
     }
 }

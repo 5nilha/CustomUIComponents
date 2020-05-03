@@ -60,8 +60,9 @@ enum CustomNumberFormatter<T> {
         }
         
         private func formatInt(value: Int64) -> Double {
-            let digits = pow(10, Double(self.numberOfDigits))
-            return Double(value / 100) + Double(value % 100) / digits
+            let digits = Int64(pow(10, Double(self.numberOfDigits)))
+            let result =  Double(value / digits) + Double(value % digits) / Double(digits)
+            return result
         }
         
         private func stringByRemovingCharacters(_ string: String) -> String? {
@@ -75,10 +76,8 @@ enum CustomNumberFormatter<T> {
                return nil
            }
         }
-        
     }
 
-    
     func formattedValue() throws -> Double {
         switch self {
         case .currency(let value):
