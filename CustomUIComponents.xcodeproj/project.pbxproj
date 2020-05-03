@@ -30,6 +30,9 @@
 		3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */; };
 		3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */; };
 		3EFC8D5E245EAE9F000EEB34 /* MessagingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC8D5D245EAE9F000EEB34 /* MessagingUI.swift */; };
+		3EFC8D64245EBC87000EEB34 /* MessageUIBubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC8D63245EBC87000EEB34 /* MessageUIBubbles.swift */; };
+		3EFC8D66245EBF10000EEB34 /* MessageUIBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC8D65245EBF10000EEB34 /* MessageUIBubbleCell.swift */; };
+		3EFC8D68245EC18C000EEB34 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC8D67245EC18C000EEB34 /* Label.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesProtocol.swift; sourceTree = "<group>"; };
 		3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberFormatter.swift; sourceTree = "<group>"; };
 		3EFC8D5D245EAE9F000EEB34 /* MessagingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingUI.swift; sourceTree = "<group>"; };
+		3EFC8D63245EBC87000EEB34 /* MessageUIBubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUIBubbles.swift; sourceTree = "<group>"; };
+		3EFC8D65245EBF10000EEB34 /* MessageUIBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUIBubbleCell.swift; sourceTree = "<group>"; };
+		3EFC8D67245EC18C000EEB34 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				3E93563F244E8A4700F70D93 /* CustomLabel.swift */,
+				3EFC8D67245EC18C000EEB34 /* Label.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -265,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				3EFC8D5D245EAE9F000EEB34 /* MessagingUI.swift */,
+				3EFC8D63245EBC87000EEB34 /* MessageUIBubbles.swift */,
+				3EFC8D65245EBF10000EEB34 /* MessageUIBubbleCell.swift */,
 			);
 			path = MessagingUI;
 			sourceTree = "<group>";
@@ -402,6 +411,7 @@
 			files = (
 				3E935604244E894600F70D93 /* ViewController.swift in Sources */,
 				3E44BB89245B747F00C65DAB /* LocalPercentages.swift in Sources */,
+				3EFC8D66245EBF10000EEB34 /* MessageUIBubbleCell.swift in Sources */,
 				3E44BB93245C2E2100C65DAB /* NumeralDecoratorProtocol.swift in Sources */,
 				3E935640244E8A4700F70D93 /* CustomLabel.swift in Sources */,
 				3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */,
@@ -416,6 +426,8 @@
 				3E935643244E8A8400F70D93 /* Currency.swift in Sources */,
 				3E93560A244E894600F70D93 /* CustomUIComponents.xcdatamodeld in Sources */,
 				3E935639244E89D100F70D93 /* CustomInputType.swift in Sources */,
+				3EFC8D64245EBC87000EEB34 /* MessageUIBubbles.swift in Sources */,
+				3EFC8D68245EC18C000EEB34 /* Label.swift in Sources */,
 				3E935602244E894600F70D93 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
