@@ -11,16 +11,22 @@ import XCTest
 
 class PercentageTest: XCTestCase {
     var regularPercentage: Percentage!
-    var decimalPercentage: Percentage!
+    var oneDecimalPercentage: Percentage!
+    var twoDecimalsPercentage: Percentage!
+    var customDecimalPercentage: Percentage!
 
     override func setUp() {
         self.regularPercentage = Percentage(type: .regular)
-        self.decimalPercentage = Percentage(type: .decimal)
+        self.oneDecimalPercentage = Percentage(type: .oneDigitDecimal)
+        self.twoDecimalsPercentage = Percentage(type: .twoDigitsDecimal)
+        self.customDecimalPercentage = Percentage(type: .custom(NumOfDecimals: 5))
     }
 
     override func tearDown() {
         self.regularPercentage = nil
-        self.decimalPercentage = nil
+        self.oneDecimalPercentage = nil
+        self.twoDecimalsPercentage = nil
+        self.customDecimalPercentage = nil
     }
 
     func testRegularPercentage() {
@@ -36,15 +42,18 @@ class PercentageTest: XCTestCase {
     }
     
     func testDecimalPercentage() {
-        XCTAssertEqual(try? self.decimalPercentage.decorate(digitChar: "0"), "0.0%")
-        XCTAssertEqual(try? self.decimalPercentage.decorate(digitChar: "85.487"), "85.5%")
-        XCTAssertEqual(try? self.decimalPercentage.decorate(digitChar: "100.00"), "100.0%")
+        XCTAssertEqual(try? self.oneDecimalPercentage.decorate(digitChar: "0"), "0.0%")
+        XCTAssertEqual(try? self.oneDecimalPercentage.decorate(digitChar: "85.487"), "85.5%")
+        XCTAssertEqual(try? self.oneDecimalPercentage.decorate(digitChar: "100.00"), "100.0%")
         
-        do {
-            _ = try self.regularPercentage.decorate(digitChar: "1,00")
-        } catch {
-            XCTAssertEqual(error.localizedDescription, CustomEntryError.invalidInput.description)
-        }
+        XCTAssertEqual(try? self.twoDecimalsPercentage.decorate(digitChar: "0"), "0.0%")
+        XCTAssertEqual(try? self.twoDecimalsPercentage.decorate(digitChar: "85.487"), "85.49%")
+        XCTAssertEqual(try? self.twoDecimalsPercentage.decorate(digitChar: "100.00"), "100.0%")
+        
+        XCTAssertEqual(try? self.customDecimalPercentage.decorate(digitChar: "0"), "0.0%")
+        XCTAssertEqual(try? self.customDecimalPercentage.decorate(digitChar: "85.487"), "85.487%")
+        XCTAssertEqual(try? self.customDecimalPercentage.decorate(digitChar: "85.48712"), "85.48712%")
+        XCTAssertEqual(try? self.customDecimalPercentage.decorate(digitChar: "100.00"), "100.0%")
     }
     
     func testConvertingNumeralValues() {
@@ -52,9 +61,22 @@ class PercentageTest: XCTestCase {
         XCTAssertEqual(try? self.regularPercentage.getNumeralValue(amount: 1), 1)
         XCTAssertEqual(try? self.regularPercentage.getNumeralValue(amount: 3.5), 4)
         
-        XCTAssertEqual(try? self.decimalPercentage.getNumeralValue(amount: "2.40"), 2.4)
-        XCTAssertEqual(try? self.decimalPercentage.getNumeralValue(amount: 1), 0.1)
-        XCTAssertEqual(try? self.decimalPercentage.getNumeralValue(amount: 3.5), 3.5)
+        XCTAssertEqual(try? self.oneDecimalPercentage.getNumeralValue(amount: "2.40"), 2.4)
+        XCTAssertEqual(try? self.oneDecimalPercentage.getNumeralValue(amount: 1), 0.1)
+        XCTAssertEqual(try? self.oneDecimalPercentage.getNumeralValue(amount: 3.5), 3.5)
+        
+        XCTAssertEqual(try? self.twoDecimalsPercentage.getNumeralValue(amount: "2.40"), 2.4)
+        XCTAssertEqual(try? self.twoDecimalsPercentage.getNumeralValue(amount: "2.44"), 2.44)
+        XCTAssertEqual(try? self.twoDecimalsPercentage.getNumeralValue(amount: 1), 0.01)
+        XCTAssertEqual(try? self.twoDecimalsPercentage.getNumeralValue(amount: 3.5), 3.5)
+        XCTAssertEqual(try? self.twoDecimalsPercentage.getNumeralValue(amount: 3.05), 3.05)
+        
+        XCTAssertEqual(try? self.customDecimalPercentage.getNumeralValue(amount: "2.40"), 2.4)
+        XCTAssertEqual(try? self.customDecimalPercentage.getNumeralValue(amount: "2.44123"), 2.44123)
+        XCTAssertEqual(try? self.customDecimalPercentage.getNumeralValue(amount: "2.441237"), 2.44124)
+        XCTAssertEqual(try? self.customDecimalPercentage.getNumeralValue(amount: 1), 0.00001)
+        XCTAssertEqual(try? self.customDecimalPercentage.getNumeralValue(amount: 3.5), 3.5)
+        XCTAssertEqual(try? self.customDecimalPercentage.getNumeralValue(amount: 3.0512), 3.0512)
     }
     
     func testModel() {
@@ -70,20 +92,73 @@ class PercentageTest: XCTestCase {
         XCTAssertEqual(stringPercent, "4%")
         XCTAssertEqual(self.regularPercentage.value as? Double, 4)
         
-        stringPercent = try? self.decimalPercentage.decorate(digitChar: "2.40")
+        stringPercent = try? self.oneDecimalPercentage.decorate(digitChar: "2.40")
         XCTAssertEqual(stringPercent, "2.4%")
-        XCTAssertEqual(self.decimalPercentage.value as? Double, 2.4)
+        XCTAssertEqual(self.oneDecimalPercentage.value as? Double, 2.4)
         
-        var stringDecimalPercent = try? self.decimalPercentage.decorate(digitChar: "1")
+        var stringDecimalPercent = try? self.oneDecimalPercentage.decorate(digitChar: "1")
         XCTAssertEqual(stringDecimalPercent, "0.1%")
-        XCTAssertEqual(self.decimalPercentage.value as? Double, 0.1)
+        XCTAssertEqual(self.oneDecimalPercentage.value as? Double, 0.1)
         
-        stringDecimalPercent = try? self.decimalPercentage.decorate(digitChar: "3.5")
+        stringDecimalPercent = try? self.oneDecimalPercentage.decorate(digitChar: "3.5")
         XCTAssertEqual(stringDecimalPercent, "3.5%")
-        XCTAssertEqual(self.decimalPercentage.value as? Double, 3.5)
+        XCTAssertEqual(self.oneDecimalPercentage.value as? Double, 3.5)
+        
+        stringPercent = try? self.twoDecimalsPercentage.decorate(digitChar: "2.40")
+        XCTAssertEqual(stringPercent, "2.4%")
+        XCTAssertEqual(self.twoDecimalsPercentage.value as? Double, 2.4)
+        
+        stringPercent = try? self.twoDecimalsPercentage.decorate(digitChar: "2.44")
+        XCTAssertEqual(stringPercent, "2.44%")
+        XCTAssertEqual(self.twoDecimalsPercentage.value as? Double, 2.44)
+        
+        stringPercent = try? self.twoDecimalsPercentage.decorate(digitChar: "2.456")
+        XCTAssertEqual(stringPercent, "2.46%")
+        XCTAssertEqual(self.twoDecimalsPercentage.value as? Double, 2.46)
+        
+        stringDecimalPercent = try? self.twoDecimalsPercentage.decorate(digitChar: "1")
+        XCTAssertEqual(stringDecimalPercent, "0.01%")
+        XCTAssertEqual(self.twoDecimalsPercentage.value as? Double, 0.01)
+        
+        stringDecimalPercent = try? self.twoDecimalsPercentage.decorate(digitChar: "3.5")
+        XCTAssertEqual(stringDecimalPercent, "3.5%")
+        XCTAssertEqual(self.twoDecimalsPercentage.value as? Double, 3.5)
+        
+        stringDecimalPercent = try? self.twoDecimalsPercentage.decorate(digitChar: "3.05")
+        XCTAssertEqual(stringDecimalPercent, "3.05%")
+        XCTAssertEqual(self.twoDecimalsPercentage.value as? Double, 3.05)
+        
+        stringPercent = try? self.customDecimalPercentage.decorate(digitChar: "2.40")
+        XCTAssertEqual(stringPercent, "2.4%")
+        XCTAssertEqual(self.customDecimalPercentage.value as? Double, 2.4)
+        
+        stringPercent = try? self.customDecimalPercentage.decorate(digitChar: "2.44123")
+        XCTAssertEqual(stringPercent, "2.44123%")
+        XCTAssertEqual(self.customDecimalPercentage.value as? Double, 2.44123)
+        
+        stringPercent = try? self.customDecimalPercentage.decorate(digitChar: "2.441237")
+        XCTAssertEqual(stringPercent, "2.44124%")
+        XCTAssertEqual(self.customDecimalPercentage.value as? Double, 2.44124)
+        
+        stringDecimalPercent = try? self.customDecimalPercentage.decorate(digitChar: "1")
+        XCTAssertEqual(stringDecimalPercent, "0.00001%")
+        XCTAssertEqual(self.customDecimalPercentage.value as? Double, 0.00001)
+        
+        stringDecimalPercent = try? self.customDecimalPercentage.decorate(digitChar: "3.5")
+        XCTAssertEqual(stringDecimalPercent, "3.5%")
+        XCTAssertEqual(self.customDecimalPercentage.value as? Double, 3.5)
+        
+        stringDecimalPercent = try? self.customDecimalPercentage.decorate(digitChar: "3.0512")
+        XCTAssertEqual(stringDecimalPercent, "3.0512%")
+        XCTAssertEqual(self.customDecimalPercentage.value as? Double, 3.0512)
+        
+        
     }
     
     func testPlaceholder() {
         XCTAssertEqual(self.regularPercentage.defaultPlaceholder(), "0%")
+        XCTAssertEqual(self.oneDecimalPercentage.defaultPlaceholder(), "0.0%")
+        XCTAssertEqual(self.twoDecimalsPercentage.defaultPlaceholder(), "0.0%")
+        XCTAssertEqual(self.customDecimalPercentage.defaultPlaceholder(), "0.0%")
     }
 }
