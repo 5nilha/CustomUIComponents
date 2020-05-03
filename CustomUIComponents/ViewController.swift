@@ -17,9 +17,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
        super.viewDidLoad()
 //        self.textField.setType(type: .currency(.Localized))
-        self.textField.setType(type: .percentage(.regular))
+        self.textField.setType(type: .percentage(.custom(NumOfDecimals: 5)))
         self.entryDefaultLabel.text = self.textField.defaultText
-        self.label.setType(type: .percentage(.decimal))
+        self.label.setType(type: .percentage(.regular))
         self.label.text = "89.87663"
     }
 }

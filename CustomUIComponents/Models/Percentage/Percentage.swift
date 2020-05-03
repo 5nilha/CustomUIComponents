@@ -59,8 +59,14 @@ struct Percentage: NumeralDecoratorProtocol {
         case .regular:
             let value = try CustomNumberFormatter.percentage(value: amount).formattedValue()
             return value
-        case .decimal:
-            let value = try CustomNumberFormatter.decimalPercentage(value: amount).formattedValue()
+        case .oneDigitDecimal:
+            let value = try CustomNumberFormatter.oneDecimal(value: amount).formattedValue()
+            return value
+        case .twoDigitsDecimal:
+            let value = try CustomNumberFormatter.twoDecimals(value: amount).formattedValue()
+            return value
+        case .custom(let decimals):
+            let value = try CustomNumberFormatter.customDecimal(value: amount, decimals: decimals).formattedValue()
             return value
         }
     }

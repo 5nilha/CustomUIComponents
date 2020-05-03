@@ -6,8 +6,9 @@ import Foundation
 enum CustomNumberFormatter<T> {
     case currency(value: T)
     case percentage(value: T)
-    case decimalPercentage(value: T)
-    case decimal(value: Double)
+    case oneDecimal(value: T)
+    case twoDecimals(value: T)
+    case customDecimal(value: T, decimals: Int)
     case scientific(value: Double)
     
     private enum NumberOfDecimals {
@@ -16,6 +17,7 @@ enum CustomNumberFormatter<T> {
         case twoDigits
         case threeDigits
         case fourDigits
+        case custom(decimal: Int)
         case unknown
         
         private var numberOfDigits: Int {
@@ -30,6 +32,8 @@ enum CustomNumberFormatter<T> {
                 return 3
             case .fourDigits:
                 return 4
+            case .custom(let decimals):
+                return decimals
             }
         }
         
@@ -80,14 +84,14 @@ enum CustomNumberFormatter<T> {
 
     func formattedValue() throws -> Double {
         switch self {
-        case .currency(let value):
-            return try NumberOfDecimals.twoDigits.format(value: value)
-        case .decimal(let value):
+        case .currency(let value), .twoDecimals(let value):
             return try NumberOfDecimals.twoDigits.format(value: value)
         case .percentage(let value):
             return try NumberOfDecimals.zerodigits.format(value: value)
-        case .decimalPercentage(let value):
+        case .oneDecimal(let value):
             return try NumberOfDecimals.oneDigit.format(value: value)
+        case .customDecimal(let value, let decimals):
+            return try NumberOfDecimals.custom(decimal: decimals).format(value: value)
         case .scientific(let value):
             return try NumberOfDecimals.twoDigits.format(value: value)
         }
