@@ -21,9 +21,13 @@ enum CustomInputType {
         case .percentage(let localPercentage):
             switch localPercentage {
             case .regular:
-                return 4
-            case .decimal:
+                return 3
+            case .oneDigitDecimal:
+                return 5
+            case .twoDigitsDecimal:
                 return 6
+            case .custom:
+                return 20
             }
         case .email:
             return 256

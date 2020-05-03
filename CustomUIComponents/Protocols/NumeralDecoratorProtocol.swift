@@ -5,6 +5,7 @@
 import Foundation
 
 protocol NumeralDecoratorProtocol{
+    var value: Any { get }
     mutating func defaultPlaceholder() -> String
     mutating func decorate(digitChar: String?) throws -> String
     func getNumeralValue<T>(amount: T) throws -> Double?

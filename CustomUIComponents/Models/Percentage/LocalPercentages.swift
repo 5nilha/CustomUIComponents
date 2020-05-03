@@ -10,10 +10,11 @@ import Foundation
 
 enum LocalPercentages {
     case regular
-    case decimal
-
+    case oneDigitDecimal
+    case twoDigitsDecimal
+    case custom(NumOfDecimals: Int)
+    
     func format(value: Double) -> String {
-        print("Value \(value)")
         let locale: Locale = Locale.current
         let formatter = NumberFormatter()
         formatter.locale = locale
@@ -23,20 +24,26 @@ enum LocalPercentages {
         case .regular:
             formatter.minimumFractionDigits = 0
             formatter.maximumFractionDigits = 0
+            formatter.maximumIntegerDigits = 3
+            formatter.minimumIntegerDigits = 1
             return formatter.string(from: NSNumber(value: value / 100))!
-        case .decimal:
+        case .oneDigitDecimal:
             formatter.minimumFractionDigits = 1
             formatter.maximumFractionDigits = 1
             formatter.maximumIntegerDigits = 3
             formatter.minimumIntegerDigits = 1
             return formatter.string(from: NSNumber(value: value / 100))!
-            
-            
-//            formatter.numberStyle = .decimal
-//            let decimalPercent = "\(formatter.string(from: NSNumber(value: value))!) \(formatter.percentSymbol!)"
-//
-//            return decimalPercent
-            
+        case .twoDigitsDecimal:
+            formatter.minimumFractionDigits = 1
+            formatter.maximumFractionDigits = 2
+            formatter.maximumIntegerDigits = 3
+            formatter.minimumIntegerDigits = 1
+            return formatter.string(from: NSNumber(value: value / 100))!
+        case .custom(let decimals):
+            formatter.minimumFractionDigits = 1
+            formatter.maximumFractionDigits = decimals
+            formatter.minimumIntegerDigits = 1
+            return formatter.string(from: NSNumber(value: value / 100))!
         }
     }
 }

@@ -29,6 +29,7 @@
 		3E935643244E8A8400F70D93 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935642244E8A8400F70D93 /* Currency.swift */; };
 		3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */; };
 		3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */; };
+		3EFC8D5E245EAE9F000EEB34 /* MessagingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC8D5D245EAE9F000EEB34 /* MessagingUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		3E935642244E8A8400F70D93 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		3E935647244E8AF400F70D93 /* CurrenciesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesProtocol.swift; sourceTree = "<group>"; };
 		3E93564C244E8B5E00F70D93 /* CustomNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberFormatter.swift; sourceTree = "<group>"; };
+		3EFC8D5D245EAE9F000EEB34 /* MessagingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 		3E93563A244E89FA00F70D93 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3EFC8D5C245EAE78000EEB34 /* MessagingUI */,
 				3E93563E244E8A3400F70D93 /* Label */,
 				3E93563D244E8A2B00F70D93 /* TextField */,
 			);
@@ -256,6 +259,14 @@
 				3E44BB86245B744300C65DAB /* LocalCurrencies.swift */,
 			);
 			path = Currency;
+			sourceTree = "<group>";
+		};
+		3EFC8D5C245EAE78000EEB34 /* MessagingUI */ = {
+			isa = PBXGroup;
+			children = (
+				3EFC8D5D245EAE9F000EEB34 /* MessagingUI.swift */,
+			);
+			path = MessagingUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +407,7 @@
 				3E93564D244E8B5E00F70D93 /* CustomNumberFormatter.swift in Sources */,
 				3E44BB87245B744300C65DAB /* LocalCurrencies.swift in Sources */,
 				3E44BB85245B6DEA00C65DAB /* Percentage.swift in Sources */,
+				3EFC8D5E245EAE9F000EEB34 /* MessagingUI.swift in Sources */,
 				3E93563C244E8A1000F70D93 /* CustomInputTextField.swift in Sources */,
 				3E935648244E8AF400F70D93 /* CurrenciesProtocol.swift in Sources */,
 				3E935637244E89B300F70D93 /* CustomErrors.swift in Sources */,
